@@ -31,6 +31,14 @@ const routes: RouteRecordRaw[] = [
         path: '/demos/form',
         component: () => import('#/views/demos/form/basic.vue'),
       },
+      {
+        name: 'Leaflet',
+        path: '/demos/leaflet',
+        component: () => import('#/views/demos/leaflet/index.vue'),
+        meta: {
+          title: 'leaflet地图',
+        },
+      },
     ],
   },
 ];

@@ -65,7 +65,11 @@ async function loadCommonPlugins(
 
     {
       condition: !isBuild && devtools,
-      plugins: () => [viteVueDevTools()],
+      plugins: () => [
+        viteVueDevTools({
+          launchEditor: 'webstorm',
+        }),
+      ],
     },
     {
       condition: injectMetadata,
