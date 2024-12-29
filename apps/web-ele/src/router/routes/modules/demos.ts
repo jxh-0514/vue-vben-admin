@@ -39,6 +39,14 @@ const routes: RouteRecordRaw[] = [
           title: 'leaflet地图',
         },
       },
+      {
+        name: 'Table',
+        path: '/demos/table',
+        component: () => import('#/views/demos/table/index.vue'),
+        meta: {
+          title: '表格',
+        },
+      },
     ],
   },
 ];
