@@ -1,6 +1,8 @@
 <!--  el-table  -->
-<script lang="ts" name="index" setup>
+<script lang="ts" setup>
 import { ref } from 'vue';
+
+import { ElCard } from 'element-plus';
 
 import Table from '#/components/TableComs/Table.vue';
 
@@ -25,7 +27,8 @@ const data = ref([
     age: 26,
   },
 ]);
-const columns = ref([
+const tableHeader = ref([
+  { type: 'index', label: '序号', width: '55px' },
   {
     prop: 'name',
     label: 'Name',
@@ -42,9 +45,13 @@ const columns = ref([
 </script>
 <template>
   <div class="p-4">
-    <Table :columns :data stripe>
-      <template #name>12</template>
-    </Table>
+    <ElCard>
+      <Table :data :table-header>
+        <template #name="{ row }">
+          <span class="text-blue-950">{{ row.name }}</span>
+        </template>
+      </Table>
+    </ElCard>
   </div>
 </template>
 <style scoped></style>
