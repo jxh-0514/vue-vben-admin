@@ -28,19 +28,11 @@ const data = ref([
   },
 ]);
 const tableHeader = ref([
+  { type: 'selection', label: '全选', width: '55px' },
   { type: 'index', label: '序号', width: '55px' },
-  {
-    prop: 'name',
-    label: 'Name',
-  },
-  {
-    prop: 'age',
-    label: 'Age',
-  },
-  {
-    prop: 'address',
-    label: 'Address',
-  },
+  { prop: 'name', label: 'Name' },
+  { prop: 'age', label: 'Age' },
+  { prop: 'address', label: 'Address' },
 ]);
 </script>
 <template>
