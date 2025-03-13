@@ -15,4 +15,3 @@ const handleRegister = (callback: (printAction: PrintActionType) => void) => {
     <BasicPrint @register="handleRegister" />
   </div>
 </template>
-<style scoped></style>
