@@ -45,6 +45,14 @@ const routes: RouteRecordRaw[] = [
           title: '表格',
         },
       },
+      {
+        name: 'HiPrint',
+        path: '/demos/hiPrint',
+        component: () => import('#/views/demos/hiPrint/hiPrint.vue'),
+        meta: {
+          title: 'hiPrint',
+        },
+      },
     ],
   },
 ];

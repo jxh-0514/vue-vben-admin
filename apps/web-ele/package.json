@@ -43,9 +43,11 @@
     "@vueuse/core": "catalog:",
     "dayjs": "catalog:",
     "element-plus": "catalog:",
+    "file-saver": "^2.0.5",
     "leaflet": "^1.9.4",
     "pinia": "catalog:",
     "vue": "catalog:",
+    "vue-plugin-hiprint": "0.0.58-fix",
     "vue-router": "catalog:"
   },
   "devDependencies": {
