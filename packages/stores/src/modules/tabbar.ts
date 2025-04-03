@@ -1,5 +1,8 @@
-import type { TabDefinition } from '@vben-core/typings';
 import type { Router, RouteRecordNormalized } from 'vue-router';
+
+import type { TabDefinition } from '@vben-core/typings';
+
+import { toRaw } from 'vue';
 
 import { preferences } from '@vben-core/preferences';
 import {
@@ -7,8 +10,8 @@ import {
   startProgress,
   stopProgress,
 } from '@vben-core/shared/utils';
+
 import { acceptHMRUpdate, defineStore } from 'pinia';
-import { toRaw } from 'vue';
 
 interface TabbarState {
   /**
@@ -23,6 +26,10 @@ interface TabbarState {
    * @zh_CN 需要排除缓存的标签页
    */
   excludeCachedTabs: Set<string>;
+  /**
+   * @zh_CN 标签右键菜单列表
+   */
+  menuList: string[];
   /**
    * @zh_CN 是否刷新
    */
@@ -370,6 +377,14 @@ export const useTabbarStore = defineStore('core-tabbar', {
     },
 
     /**
+     * @zh_CN 更新菜单列表
+     * @param list
+     */
+    setMenuList(list: string[]) {
+      this.menuList = list;
+    },
+
+    /**
      * @zh_CN 设置标签页标题
      * @param tab
      * @param title
@@ -385,7 +400,6 @@ export const useTabbarStore = defineStore('core-tabbar', {
         await this.updateCacheTabs();
       }
     },
-
     setUpdateTime() {
       this.updateTime = Date.now();
     },
@@ -403,6 +417,7 @@ export const useTabbarStore = defineStore('core-tabbar', {
       this.tabs.splice(newIndex, 0, currentTab);
       this.dragEndIndex = this.dragEndIndex + 1;
     },
+
     /**
      * @zh_CN 切换固定标签页
      * @param tab
@@ -436,7 +451,6 @@ export const useTabbarStore = defineStore('core-tabbar', {
       // 交换位置重新排序
       await this.sortTabs(index, newIndex);
     },
-
     /**
      * 根据当前打开的选项卡更新缓存
      */
@@ -477,6 +491,9 @@ export const useTabbarStore = defineStore('core-tabbar', {
     getExcludeCachedTabs(): string[] {
       return [...this.excludeCachedTabs];
     },
+    getMenuList(): string[] {
+      return this.menuList;
+    },
     getTabs(): TabDefinition[] {
       const normalTabs = this.tabs.filter((tab) => !isAffixTab(tab));
       return [...this.affixTabs, ...normalTabs].filter(Boolean);
@@ -493,6 +510,17 @@ export const useTabbarStore = defineStore('core-tabbar', {
     cachedTabs: new Set(),
     dragEndIndex: 0,
     excludeCachedTabs: new Set(),
+    menuList: [
+      'close',
+      'affix',
+      'maximize',
+      'reload',
+      'open-in-new-window',
+      'close-left',
+      'close-right',
+      'close-other',
+      'close-all',
+    ],
     renderRouteView: true,
     tabs: [],
     updateTime: Date.now(),

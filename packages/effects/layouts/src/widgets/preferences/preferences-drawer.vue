@@ -11,7 +11,10 @@ import type {
   PreferencesButtonPositionType,
   ThemeModeType,
 } from '@vben/types';
+
 import type { SegmentedItem } from '@vben-core/shadcn-ui';
+
+import { computed, ref } from 'vue';
 
 import { Copy, RotateCw } from '@vben/icons';
 import { $t, loadLocaleMessages } from '@vben/locales';
@@ -21,6 +24,7 @@ import {
   resetPreferences,
   usePreferences,
 } from '@vben/preferences';
+
 import { useVbenDrawer } from '@vben-core/popup-ui';
 import {
   VbenButton,
@@ -28,8 +32,8 @@ import {
   VbenSegmented,
 } from '@vben-core/shadcn-ui';
 import { globalShareState } from '@vben-core/shared/global-state';
+
 import { useClipboard } from '@vueuse/core';
-import { computed, ref } from 'vue';
 
 import {
   Animation,
@@ -89,8 +93,9 @@ const sidebarCollapsedShowTitle = defineModel<boolean>(
 const sidebarAutoActivateChild = defineModel<boolean>(
   'sidebarAutoActivateChild',
 );
-const SidebarExpandOnHover = defineModel<boolean>('sidebarExpandOnHover');
-
+const sidebarExpandOnHover = defineModel<boolean>('sidebarExpandOnHover');
+const sidebarCollapsedButton = defineModel<boolean>('sidebarCollapsedButton');
+const sidebarFixedButton = defineModel<boolean>('sidebarFixedButton');
 const headerEnable = defineModel<boolean>('headerEnable');
 const headerMode = defineModel<LayoutHeaderModeType>('headerMode');
 const headerMenuAlign =
@@ -313,8 +318,10 @@ async function handleReset() {
                 v-model:sidebar-collapsed="sidebarCollapsed"
                 v-model:sidebar-collapsed-show-title="sidebarCollapsedShowTitle"
                 v-model:sidebar-enable="sidebarEnable"
-                v-model:sidebar-expand-on-hover="SidebarExpandOnHover"
+                v-model:sidebar-expand-on-hover="sidebarExpandOnHover"
                 v-model:sidebar-width="sidebarWidth"
+                v-model:sidebar-collapsed-button="sidebarCollapsedButton"
+                v-model:sidebar-fixed-button="sidebarFixedButton"
                 :current-layout="appLayout"
                 :disabled="!isSideMode"
               />
