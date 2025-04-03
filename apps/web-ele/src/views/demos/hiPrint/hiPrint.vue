@@ -1,4 +1,4 @@
-<!--  hiPrint  -->
+<!--  hiPrint组件  -->
 <script lang="ts" setup>
 import type { PrintActionType } from '#/components/Hiprint/src/types/Print';
 
