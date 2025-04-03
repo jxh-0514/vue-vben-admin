@@ -23,8 +23,8 @@ jobs:
 
       - name: Install and Build
         run: |
-          cd apps/web-ele
           pnpm install
+          cd apps/web-ele
           pnpm run build
 
       - name: Deploy
