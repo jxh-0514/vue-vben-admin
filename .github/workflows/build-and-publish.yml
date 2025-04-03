@@ -22,10 +22,10 @@ jobs:
         run: npm install -g pnpm@10.7.1
 
       - name: Install and Build
+        # cd apps/web-ele
         run: |
           pnpm install
-          cd apps/web-ele
-          pnpm run build
+          pnpm run build:ele
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.3.3
