@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import type { UseResizeObserverReturn } from '@vueuse/core';
+
 import type { SetupContext, VNodeArrayChildren } from 'vue';
 
 import type {
@@ -9,10 +10,6 @@ import type {
   MenuProvider,
 } from '../types';
 
-import { useNamespace } from '@vben-core/composables';
-import { Ellipsis } from '@vben-core/icons';
-import { isHttpUrl } from '@vben-core/shared/utils';
-import { useResizeObserver } from '@vueuse/core';
 import {
   computed,
   nextTick,
@@ -23,6 +20,11 @@ import {
   watch,
   watchEffect,
 } from 'vue';
+
+import { useNamespace } from '@vben-core/composables';
+import { Ellipsis } from '@vben-core/icons';
+
+import { useResizeObserver } from '@vueuse/core';
 
 import {
   createMenuContext,
@@ -244,9 +246,6 @@ function handleMenuItemClick(data: MenuItemClicked) {
   const { parentPaths, path } = data;
   if (!path || !parentPaths) {
     return;
-  }
-  if (!isHttpUrl(path)) {
-    activePath.value = path;
   }
 
   emit('select', path, parentPaths);
