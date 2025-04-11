@@ -1,16 +1,17 @@
 <!--  初始化leaflet地图组件  -->
 <script lang="ts" setup>
+import { onMounted } from 'vue';
+
 import { useLMap } from '#/hooks/useLMap';
 
 defineOptions({ name: 'InitLMap' });
 
-const { mapInstance } = useLMap('LMap', {
+const { initMap } = useLMap('LMap', {
   center: [39.9, 116.3],
   zoom: 11,
 });
-
-defineExpose({
-  mapInstance,
+onMounted(() => {
+  const mapInstance = initMap();
 });
 </script>
 <template>
