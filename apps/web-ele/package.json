@@ -26,6 +26,7 @@
     "#/*": "./src/*"
   },
   "dependencies": {
+    "@iconify/vue": "catalog:",
     "@vben/access": "workspace:*",
     "@vben/common-ui": "workspace:*",
     "@vben/constants": "workspace:*",
@@ -44,6 +45,7 @@
     "dayjs": "catalog:",
     "element-plus": "catalog:",
     "file-saver": "^2.0.5",
+    "flv-extend": "^0.3.0",
     "leaflet": "^1.9.4",
     "pinia": "catalog:",
     "vue": "catalog:",

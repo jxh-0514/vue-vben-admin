@@ -1,12 +1,10 @@
 <!--  el-table  -->
 <script lang="ts" setup>
-import { ref } from 'vue';
-
 import { ElButton, ElCard, ElMessage } from 'element-plus';
 
 import Table from '#/components/TableComs/Table.vue';
 
-const data = ref([
+const data = [
   {
     name: 'John',
     age: 18,
@@ -26,15 +24,15 @@ const data = ref([
     name: 'Jon Snow',
     age: 26,
   },
-]);
-const tableHeader = ref([
+];
+const tableHeader = [
   { type: 'selection', label: '全选', width: '55px' },
   { type: 'index', label: '序号', width: '55px' },
   { prop: 'name', label: 'Name' },
   { prop: 'age', label: 'Age' },
   { prop: 'address', label: 'Address' },
   { prop: 'operation', label: '操作', width: 200 },
-]);
+];
 
 const handleEdit = (row) => {
   ElMessage.warning('点击了编辑按钮！！！');
@@ -45,7 +43,7 @@ const handleEdit = (row) => {
     <ElCard>
       <Table :data :table-header>
         <template #name="{ row }">
-          <span class="text-blue-950">{{ row.name }}</span>
+          <span class="text-blue-500">{{ row.name }}</span>
         </template>
         <template #operation="{ row }">
           <ElButton type="primary" @click="handleEdit(row)">编辑</ElButton>

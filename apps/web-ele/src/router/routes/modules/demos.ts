@@ -58,6 +58,12 @@ const routes: RouteRecordRaw[] = [
         ],
       },
       {
+        name: 'Video',
+        path: '/video',
+        meta: { title: '视频' },
+        component: () => import('#/views/demos/video/videoSurveillance.vue'),
+      },
+      {
         name: 'Table',
         path: '/demos/table',
         component: () => import('#/views/demos/table/index.vue'),
