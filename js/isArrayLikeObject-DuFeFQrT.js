@@ -1,0 +1,1 @@
+import{s as t,o as s,i as e}from"./index-n_rlewVQ.js";import{i as o}from"./isEqual-ChBObjyb.js";import{e as a}from"./bootstrap-D_YbTZR3.js";function f(i,r){return t(s(i,r,e),i+"")}function p(i){return a(i)&&o(i)}export{f as b,p as i};
