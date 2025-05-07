@@ -37,7 +37,7 @@ export function useLMap(mapId: string, options: UseLeafletOptions) {
     mapInstance = L.map(mapId, options);
 
     const { theme } = useTheme();
-    const filters = tileLayerTheme(theme);
+    const filters = tileLayerTheme(theme.value);
 
     // 添加图层
     tileLayer = L.tileLayer?.colorFilter(

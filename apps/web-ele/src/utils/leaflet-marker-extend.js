@@ -9,7 +9,7 @@ const originalInitialize = L.Marker.prototype.initialize;
 // 设置默认图标
 const defaultIcon = L.icon({
   iconUrl: Icon,
-  iconAnchor: [0, 21],
+  // iconAnchor: [0, 20],
   iconSize: [25, 41],
 });
 
