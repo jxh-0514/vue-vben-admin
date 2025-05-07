@@ -6,7 +6,7 @@ export default defineConfig(async () => {
   return {
     application: {},
     vite: {
-      base: "/vue-vben-admin/", //  解决部署时静态资源路径问题./
+      base: "./", //  解决部署时静态资源路径问题./
       plugins: [
         ElementPlus({
           format: 'esm',
