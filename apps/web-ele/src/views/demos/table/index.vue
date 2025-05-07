@@ -2,7 +2,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
-import { ElCard } from 'element-plus';
+import { ElButton, ElCard, ElMessage } from 'element-plus';
 
 import Table from '#/components/TableComs/Table.vue';
 
@@ -33,7 +33,12 @@ const tableHeader = ref([
   { prop: 'name', label: 'Name' },
   { prop: 'age', label: 'Age' },
   { prop: 'address', label: 'Address' },
+  { prop: 'operation', label: '操作', width: 200 },
 ]);
+
+const handleEdit = (row) => {
+  ElMessage.warning('点击了编辑按钮！！！');
+};
 </script>
 <template>
   <div class="p-4">
@@ -41,6 +46,9 @@ const tableHeader = ref([
       <Table :data :table-header>
         <template #name="{ row }">
           <span class="text-blue-950">{{ row.name }}</span>
+        </template>
+        <template #operation="{ row }">
+          <ElButton type="primary" @click="handleEdit(row)">编辑</ElButton>
         </template>
       </Table>
     </ElCard>
