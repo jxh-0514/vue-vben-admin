@@ -1,5 +1,6 @@
 import type { RouteRecordRaw } from 'vue-router';
 
+import { BasicLayout } from '#/layouts';
 import { $t } from '#/locales';
 
 const routes: RouteRecordRaw[] = [
@@ -12,6 +13,7 @@ const routes: RouteRecordRaw[] = [
     },
     name: 'Demos',
     path: '/demos',
+    component: BasicLayout,
     children: [
       {
         meta: {
@@ -31,11 +33,29 @@ const routes: RouteRecordRaw[] = [
       },
       {
         name: 'Leaflet',
-        path: '/demos/leaflet',
-        component: () => import('#/views/demos/leaflet/index.vue'),
+        path: '/demos',
         meta: {
-          title: 'leaflet地图',
+          title: 'leaflet',
         },
+        children: [
+          {
+            name: 'LeafletIndex',
+            path: '/demos/leaflet',
+            component: () => import('#/views/demos/leaflet/index.vue'),
+            meta: {
+              title: 'leaflet地图',
+            },
+          },
+          {
+            name: 'LeafletBaseMaps',
+            path: '/demos/leaflet/leaflet-base-maps',
+            component: () =>
+              import('#/views/demos/leaflet/leaflet-base-maps.vue'),
+            meta: {
+              title: 'leaflet图层组',
+            },
+          },
+        ],
       },
       {
         name: 'Table',
