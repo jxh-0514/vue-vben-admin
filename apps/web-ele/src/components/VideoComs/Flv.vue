@@ -25,11 +25,9 @@ const videoRef = ref<HTMLVideoElement | null>(null);
 const player = ref(null);
 
 // 初始化播放器
-function initFlvExtend(webUrl: string) {
+function initFlvExtend() {
   const element = videoRef.value;
-  const stream = ref();
   // 实时
-  stream.value = props.webUrl;
   // 配置需要的功能
   const flv = new FlvExtend({
     element,
@@ -38,13 +36,13 @@ function initFlvExtend(webUrl: string) {
     reconnect: true, // 断流后重连
     reconnectInterval: 1000, // 重连间隔(ms)
     updateOnFocus: false, // 焦点时更新帧信息
-    updateOnStart: true, // 开始播放时更新帧信息
+    updateOnStart: false, // 开始播放时更新帧信息
   });
   player.value = flv.init(
     {
       isLive: true,
       type: 'flv',
-      url: stream.value, // flv视频地址
+      url: props.webUrl, // flv视频地址
     },
     {
       autoCleanupSourceBuffer: true, // 自动清理SourceBuffer

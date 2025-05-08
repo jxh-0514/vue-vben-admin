@@ -18,16 +18,15 @@ const data = [
         deviceID: '1',
         deviceName: '画面1',
         deviceType: 1,
-        // webUrl: 'https://sf1-cdn-tos.huoshanstatic.com/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-720p.flv',
         webUrl:
-          'http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e.flv',
+          'https://sf1-cdn-tos.huoshanstatic.com/obj/media-fe/xgplayer_doc_video/flv/xgplayer-demo-360p.flv',
       },
       {
         deviceID: '2',
         deviceName: '画面2',
         deviceType: 1,
         webUrl:
-          'http://liteavapp.qcloud.com/live/liteavdemoplayerstreamid_demo1080p.flv',
+          'https://liteavapp.qcloud.com/live/liteavdemoplayerstreamid_demo1080p.flv',
       },
     ],
   },

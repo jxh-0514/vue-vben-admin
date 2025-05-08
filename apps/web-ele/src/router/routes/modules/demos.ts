@@ -55,6 +55,15 @@ const routes: RouteRecordRaw[] = [
               title: 'leaflet图层组',
             },
           },
+          {
+            name: 'LeafletGeoJson',
+            path: '/demos/leaflet/leaflet-geojson',
+            component: () =>
+              import('#/views/demos/leaflet/leaflet-geojson.vue'),
+            meta: {
+              title: 'leafletGeoJson',
+            },
+          },
         ],
       },
       {
