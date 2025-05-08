@@ -1,0 +1,4 @@
+/*leaflet 背景色跟随系统主题*/
+.leaflet-container {
+  background: var(--el-fill-color-light) !important;
+}

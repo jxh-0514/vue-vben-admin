@@ -10,6 +10,7 @@ import '#/utils/tileLayer-colorfilter.js'; // 设置图层颜色
 import '#/utils/leaflet-marker-extend.js'; // 扩展图标逻辑
 
 import 'leaflet/dist/leaflet.css';
+import '#/styles/leaflet.css'; // 自定义样式
 
 interface UseLeafletOptions {
   center: LatLngExpression;

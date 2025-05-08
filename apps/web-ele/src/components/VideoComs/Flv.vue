@@ -26,6 +26,7 @@ const player = ref(null);
 
 // 初始化播放器
 function initFlvExtend() {
+  close();
   const element = videoRef.value;
   // 实时
   // 配置需要的功能
